@@ -13,10 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 /**
  * 以下方法是提供给 liyingxuan/vuejs-cli-tutorial 教程配合使用提供api数据的，无实际应用意义
  * 需要 composer laravel-cors 来解决跨域访问问题的
@@ -51,7 +47,7 @@ Route::get('/todos', function () {
     ];
 
     return response()->json($todos); // 测试使用，故没有直接使用DB
-})->middleware('api', 'cors');
+});
 // 查一个
 Route::get('/todo/{id}', function ($id) {
     $todos = [
